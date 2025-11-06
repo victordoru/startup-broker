@@ -1,0 +1,33 @@
+import axios from 'axios';
+
+// API service for connecting to the backend server
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
+// Create axios instance with base URL
+const apiClient = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+export const api = {
+  // Health check
+  async getHealth() {
+    const response = await apiClient.get('/api/health');
+    return response.data;
+  },
+
+  // Test endpoint
+  async getTest() {
+    const response = await apiClient.get('/api/test');
+    return response.data;
+  },
+
+  // Multiply endpoint
+  async getMultiply(number) {
+    const response = await apiClient.get(`/api/multiply/${number}`);
+    return response.data;
+  },
+};
+
