@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import surveyRoutes from './routes/survey.routes.js';
 
 // Load environment variables
 dotenv.config();
@@ -67,6 +68,9 @@ app.get('/api/multiply/:number', (req, res) => {
     result: num * 2
   });
 });
+
+// Survey routes
+app.use('/api/survey', surveyRoutes);
 
 // Start server
 app.listen(PORT, () => {

@@ -47,10 +47,9 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-1">
             {[
               { id: 'inicio', label: 'Inicio' },
-              { id: 'marca', label: 'Marca' },
-              { id: 'lanzamiento', label: 'Lanzamiento' },
+              { id: 'historias', label: 'Para ti' },
+              { id: 'inicio-operativo', label: 'Cómo funciona' },
               { id: 'marketing', label: 'Marketing' },
-              { id: 'historias', label: 'Historias' },
             ].map((item) => (
               <button
                 key={item.id}
@@ -65,21 +64,22 @@ export default function Navbar() {
 
           {/* CTAs */}
           <div className="hidden md:flex items-center space-x-2">
-            <Button
+             <Button
               variant="outline"
               size="sm"
               onClick={() => scrollToSection('cta')}
               aria-label="Iniciar sesión"
             >
-              Iniciar sesión
-            </Button>
-            <Button
+              Solicitar información
+
+            </Button> 
+            {/* <Button
               size="sm"
               onClick={() => scrollToSection('cta')}
               aria-label="Únete a Broker XYZ"
             >
-              Únete a Broker XYZ
-            </Button>
+              Solicitar información
+            </Button> */}
           </div>
 
           {/* Mobile menu button */}

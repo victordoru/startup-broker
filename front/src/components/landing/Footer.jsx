@@ -73,7 +73,7 @@ export default function Footer() {
                 <address className="not-italic">
                   Calle Ejemplo 123
                   <br />
-                  28001 Madrid, España
+                  29018 Málaga, España
                 </address>
               </li>
             </ul>

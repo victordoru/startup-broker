@@ -1,66 +1,32 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Star } from 'lucide-react';
+import { Target, TrendingUp, Users, Zap } from 'lucide-react';
 
 export default function HistoriasSection() {
-  const testimonials = [
+  const benefits = [
     {
-      name: 'María González',
-      role: 'Fundadora de González Properties',
-      image: '/placeholder-maria.jpg',
-      initials: 'MG',
-      quote:
-        'Desde que lancé mi propia agencia con el apoyo de Broker XYZ, mi volumen de ventas se ha triplicado. Ya no entrego el 50% de mis comisiones a una franquicia, y tengo total control sobre mi marca.',
-      results: '3x volumen de ventas en 12 meses',
-      rating: 5,
+      icon: Target,
+      title: 'Construye tu propia marca',
+      description:
+        'Desarrolla una identidad única que refleje tu estilo profesional y te diferencie en el mercado.',
     },
     {
-      name: 'Carlos Fernández',
-      role: 'Director de Fernández & Asociados',
-      image: '/placeholder-carlos.jpg',
-      initials: 'CF',
-      quote:
-        'El proceso fue mucho más sencillo de lo que imaginaba. El equipo de operaciones gestionó toda la burocracia y pude empezar a operar con mi nueva marca en menos de 30 días.',
-      results: '€2M+ en transacciones en el primer año',
-      rating: 5,
+      icon: TrendingUp,
+      title: 'Conserva más comisiones',
+      description:
+        'Mantén un mayor porcentaje de tus ingresos al eliminar las comisiones de franquicias tradicionales.',
     },
     {
-      name: 'Laura Martínez',
-      role: 'CEO de Martínez Homes',
-      image: '/placeholder-laura.jpg',
-      initials: 'LM',
-      quote:
-        'No solo conservo más comisiones, también he podido construir un equipo propio de 8 agentes. La plataforma de marketing y el sitio web que me proporcionaron han sido clave para atraer tanto clientes como talento.',
-      results: 'Equipo de 8 agentes en 18 meses',
-      rating: 5,
+      icon: Users,
+      title: 'Construye tu equipo',
+      description:
+        'Escala tu negocio reclutando agentes bajo tu propia marca y crea una organización que crezca contigo.',
     },
     {
-      name: 'Javier López',
-      role: 'Propietario de López Real Estate',
-      image: '/placeholder-javier.jpg',
-      initials: 'JL',
-      quote:
-        'Tener mi propia marca me ha dado credibilidad en el mercado local. Los clientes me ven como un empresario serio, no solo como un agente más. El ROI ha superado todas mis expectativas.',
-      results: '+150% en ingresos netos',
-      rating: 5,
-    },
-    {
-      name: 'Ana Ruiz',
-      role: 'Fundadora de Ruiz Properties Group',
-      image: '/placeholder-ana.jpg',
-      initials: 'AR',
-      quote:
-        'El acompañamiento fue excepcional. Mi gestor de lanzamiento me ayudó con cada detalle, desde el logo hasta la primera campaña de Facebook Ads. Ahora puedo concentrarme 100% en vender.',
-      results: '€3.5M+ en ventas anuales',
-      rating: 5,
+      icon: Zap,
+      title: 'Enfócate en vender',
+      description:
+        'Déjanos manejar el back-office, la burocracia y el cumplimiento legal mientras tú te concentras en cerrar ventas.',
     },
   ];
 
@@ -78,86 +44,67 @@ export default function HistoriasSection() {
               id="historias-title"
               className="text-3xl md:text-5xl font-bold text-foreground"
             >
-              Historias de éxito
+              Tu futuro como empresario inmobiliario
             </h2>
             <Separator className="max-w-24 mx-auto" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Conoce a otros agentes que, gracias a nuestro modelo, han tomado el control de
-              su negocio y han multiplicado su volumen de ventas. Inspírate con sus casos
-              reales y descubre cómo una plataforma de apoyo puede transformar tu carrera.
+              Estamos construyendo una nueva forma de hacer negocios inmobiliarios. Únete a los primeros
+              agentes que tomarán el control de su carrera y construirán su propia marca. Sé parte de
+              esta transformación desde el inicio.
             </p>
           </div>
 
-          {/* Carousel */}
-          <div className="relative px-12">
-            <Carousel
-              opts={{
-                align: 'start',
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <Card
-                      className="h-full"
-                      role="article"
-                      aria-labelledby={`testimonial-${index}-name`}
-                    >
-                      <CardContent className="p-6 flex flex-col h-full">
-                        {/* Rating */}
-                        <div className="flex gap-1 mb-4" aria-label={`${testimonial.rating} de 5 estrellas`}>
-                          {Array.from({ length: testimonial.rating }).map((_, i) => (
-                            <Star
-                              key={i}
-                              className="w-4 h-4 fill-primary text-primary"
-                              aria-hidden="true"
-                            />
-                          ))}
-                        </div>
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <Card
+                  key={index}
+                  className="h-full hover:shadow-lg transition-shadow"
+                  role="article"
+                  aria-labelledby={`benefit-${index}-title`}
+                >
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center"
+                        aria-hidden="true"
+                      >
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="space-y-2">
+                        <CardTitle id={`benefit-${index}-title`} className="text-xl">
+                          {benefit.title}
+                        </CardTitle>
+                        <p className="text-base text-muted-foreground leading-relaxed">
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              );
+            })}
+          </div>
 
-                        {/* Quote */}
-                        <blockquote className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">
-                          "{testimonial.quote}"
-                        </blockquote>
-
-                        {/* Results badge */}
-                        <div className="mb-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
-                          <p className="text-xs font-semibold text-primary text-center">
-                            {testimonial.results}
-                          </p>
-                        </div>
-
-                        {/* Author */}
-                        <div className="flex items-center gap-3">
-                          <Avatar className="w-12 h-12">
-                            <AvatarImage
-                              src={testimonial.image}
-                              alt={`Foto de ${testimonial.name}`}
-                            />
-                            <AvatarFallback className="bg-primary/10 text-primary">
-                              {testimonial.initials}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <p
-                              id={`testimonial-${index}-name`}
-                              className="font-semibold text-foreground text-sm"
-                            >
-                              {testimonial.name}
-                            </p>
-                            <p className="text-xs text-muted-foreground">{testimonial.role}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-0" />
-              <CarouselNext className="right-0" />
-            </Carousel>
+          {/* Call to action */}
+          <div className="mt-12 text-center">
+            <Card className="max-w-2xl mx-auto bg-primary/5 border-primary/20">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold text-foreground mb-4">
+                  Sé parte de los primeros
+                </h3>
+                <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                  Estamos en fase de lanzamiento y buscamos agentes visionarios que quieran
+                  ser pioneros en esta nueva forma de hacer negocios inmobiliarios. Si eres
+                  ambicioso, independiente y quieres construir algo propio, esta es tu oportunidad.
+                </p>
+                <p className="text-sm font-medium text-primary">
+                  Únete ahora y forma parte de la primera generación de agentes independientes.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

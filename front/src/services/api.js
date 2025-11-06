@@ -29,5 +29,23 @@ export const api = {
     const response = await apiClient.get(`/api/multiply/${number}`);
     return response.data;
   },
+
+  // Submit survey response
+  async submitSurvey(surveyData) {
+    const response = await apiClient.post('/api/survey', surveyData);
+    return response.data;
+  },
+
+  // Get all surveys (for analytics/admin)
+  async getAllSurveys() {
+    const response = await apiClient.get('/api/survey');
+    return response.data;
+  },
+
+  // Get survey statistics
+  async getSurveyStats() {
+    const response = await apiClient.get('/api/survey/stats');
+    return response.data;
+  },
 };
 

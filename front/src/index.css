@@ -21,6 +21,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 @import "tailwindcss";
 
@@ -109,6 +110,7 @@
   --font-nunito: "Nunito", sans-serif;
   --font-hedvigLettersSerif: "Hedvig Letters Serif", serif;
   --font-antonio: "Antonio", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
 }
 .dark {
   --background: oklch(0.141 0.005 285.823);
@@ -261,6 +263,7 @@
   --font-nunito: var(--font-nunito);
   --font-hedvigLettersSerif: var(--font-hedvigLettersSerif);
   --font-antonio: var(--font-antonio);
+  --font-space-grotesk: var(--font-space-grotesk);
 
   --shadow-2xs: var(--shadow-2xs);
   --shadow-xs: var(--shadow-xs);
@@ -769,8 +772,23 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-dm-sans antialiased;
     scrollbar-gutter: stable;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-merriweather;
+  } 
+  p {
+    @apply font-dm-sans;
+  }
+  a {
+    @apply font-dm-sans;
+  }
+  button {
+    @apply font-dm-sans;
+  }
+  input {
+    @apply font-dm-sans;
   }
 }
 

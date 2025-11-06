@@ -42,11 +42,10 @@ export default function MarcaSection() {
             </h2>
             <Separator className="max-w-24 mx-auto" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Hemos ayudado a más de 500 profesionales a desarrollar marcas inmobiliarias
-              de éxito. Trabajaremos contigo para que tu marca refleje tu estilo y tu
+              Trabajaremos contigo para que tu marca refleje tu estilo y tu
               propuesta de valor, diferenciándote de la competencia. Nos ocupamos del
               diseño, la identidad y todos los elementos visuales que necesitas para dejar
-              huella.
+              huella y construir una marca inmobiliaria única y profesional.
             </p>
           </div>
 

@@ -32,7 +32,7 @@ export default function Hero() {
             {/* Trust badge */}
             <div className="flex justify-center" data-analytics="hero-trust-badge">
               <Badge variant="secondary" className="text-sm px-4 py-2">
-                +500 profesionales impulsados
+                Únete a los primeros
               </Badge>
             </div>
 
@@ -47,10 +47,10 @@ export default function Hero() {
             {/* Subheadline */}
             <div className="max-w-3xl mx-auto space-y-4">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Crea tu propio negocio y construye tu propio equipo con nuestro apoyo.
+                Crea tu propio negocio con nuestro apoyo.
               </p>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Nos ocupamos del back-office y del cumplimiento legal; tú te concentras en
+                Nos ocupamos del back-office y del cumplimiento legal, tú te concentras en
                 vender y en hacer crecer tu marca.
               </p>
             </div>

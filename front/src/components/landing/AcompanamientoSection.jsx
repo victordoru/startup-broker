@@ -1,89 +1,112 @@
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function AcompanamientoSection() {
-  const milestones = [
-    'Elección de nombre y logotipo',
-    'Configuración de sistemas',
-    'Tramitación de licencias',
-    'Capacitación en herramientas',
-    'Lanzamiento de sitio web',
-    'Primera campaña de marketing',
+  const encajaList = [
+    'Tienes cartera activa y quieres tu propia marca',
+    'Quieres quedarte más de cada operación',
+    'No quieres montar estructura legal/administrativa',
+    'Buscas procesos, contratos y tecnología estandarizados',
+  ];
+
+  const noEncajaList = [
+    'Prefieres trabajar bajo la marca de tu oficina',
+    'No gestionas todavía captación/cliente final',
+    'No te interesa cambiar tu modelo actual',
   ];
 
   return (
     <section
-      id="onboarding"
-      className="py-20 md:py-32 bg-background"
-      aria-labelledby="onboarding-title"
+      id="para-quien"
+      className="py-20 md:py-32 bg-muted/30"
+      aria-labelledby="para-quien-title"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 md:mb-16 space-y-4">
             <h2
-              id="onboarding-title"
+              id="para-quien-title"
               className="text-3xl md:text-5xl font-bold text-foreground"
             >
-              Acompañamiento de principio a fin
+              ¿Es para ti?
             </h2>
             <Separator className="max-w-24 mx-auto" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Tendrás un gestor de lanzamiento dedicado que te guiará en cada paso, desde
-              elegir tu logotipo hasta poner en marcha nuestros sistemas. Su misión es que
-              te sientas acompañado y seguro mientras das el salto a la independencia.
+              Este modelo está pensado para agentes con cartera que buscan independencia 
+              profesional sin perder respaldo operativo y legal.
             </p>
           </div>
 
-          {/* Card with manager and checklist */}
-          <Card className="max-w-3xl mx-auto">
-            <CardHeader className="text-center border-b">
-              <div className="flex flex-col items-center gap-4 mb-4">
-                <Avatar className="w-20 h-20">
-                  <AvatarImage src="/placeholder-manager.jpg" alt="Gestor de lanzamiento" />
-                  <AvatarFallback className="text-2xl bg-primary/10 text-primary">
-                    GL
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <CardTitle className="text-2xl mb-2">Tu gestor dedicado</CardTitle>
-                  <p className="text-sm text-muted-foreground">
-                    Experto en lanzamiento de agencias inmobiliarias
-                  </p>
+          {/* Two Columns */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Column - Encaja si */}
+            <Card className="border-2 border-green-500/20 bg-green-50/50 dark:bg-green-950/20">
+              <CardContent className="pt-8 pb-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-green-600 dark:text-green-500" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Encaja si…</h3>
                 </div>
-              </div>
-            </CardHeader>
+                <ul className="space-y-4" role="list">
+                  {encajaList.map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 group"
+                      role="listitem"
+                    >
+                      <CheckCircle2
+                        className="w-5 h-5 text-green-600 dark:text-green-500 flex-shrink-0 mt-0.5"
+                        aria-label="Sí"
+                      />
+                      <span className="text-base text-foreground leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
 
-            <CardContent className="pt-6">
-              <h3 className="text-lg font-semibold text-foreground mb-6 text-center">
-                Hitos del proceso de lanzamiento
-              </h3>
-              <ul className="space-y-4" role="list">
-                {milestones.map((milestone, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 group"
-                    role="listitem"
-                  >
-                    <CheckCircle2
-                      className="w-5 h-5 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
-                      aria-label="Completado"
-                    />
-                    <span className="text-base text-foreground">{milestone}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Right Column - Aún no es para ti si */}
+            <Card className="border-2 border-amber-500/20 bg-amber-50/50 dark:bg-amber-950/20">
+              <CardContent className="pt-8 pb-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center">
+                    <AlertCircle className="w-6 h-6 text-amber-600 dark:text-amber-500" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Aún no es para ti si…</h3>
+                </div>
+                <ul className="space-y-4" role="list">
+                  {noEncajaList.map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 group"
+                      role="listitem"
+                    >
+                      <AlertCircle
+                        className="w-5 h-5 text-amber-600 dark:text-amber-500 flex-shrink-0 mt-0.5"
+                        aria-label="Precaución"
+                      />
+                      <span className="text-base text-foreground leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
 
-              <div className="mt-8 p-4 bg-muted/50 rounded-lg text-center">
-                <p className="text-sm text-muted-foreground">
-                  Tu gestor estará disponible por teléfono, email y videollamada durante
-                  todo el proceso de lanzamiento.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Bottom note */}
+          <div className="text-center mt-12">
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              ¿Tienes dudas sobre si este modelo se adapta a ti? Hablemos y encontremos 
+              la mejor opción para tu situación.
+            </p>
+          </div>
         </div>
       </div>
     </section>

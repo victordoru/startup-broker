@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Toaster } from '@/components/ui/sonner';
 import Navbar from '@/components/landing/Navbar';
 import Hero from '@/components/landing/Hero';
-import MarcaSection from '@/components/landing/MarcaSection';
-import LanzamientoSection from '@/components/landing/LanzamientoSection';
+import InicioSection from '@/components/landing/InicioSection';
 import MarketingSection from '@/components/landing/MarketingSection';
 import AcompanamientoSection from '@/components/landing/AcompanamientoSection';
 import HistoriasSection from '@/components/landing/HistoriasSection';
@@ -55,7 +54,7 @@ export default function LandingPage() {
         />
         <meta
           name="description"
-          content="Plataforma para agentes inmobiliarios que quieren crear su propio negocio. Conserva tus comisiones, construye tu marca y olvídate del back-office. Más de 500 profesionales impulsados."
+          content="Plataforma para agentes inmobiliarios que quieren crear su propio negocio. Conserva tus comisiones, construye tu marca y olvídate del back-office. Únete a los primeros en transformar tu carrera."
         />
         <meta
           name="keywords"
@@ -135,11 +134,10 @@ export default function LandingPage() {
         <Navbar />
         <main>
           <Hero />
-          <MarcaSection />
-          <LanzamientoSection />
+          <HistoriasSection />
+          <InicioSection />
           <MarketingSection />
           <AcompanamientoSection />
-          <HistoriasSection />
           <CTASection />
         </main>
         <Footer />
