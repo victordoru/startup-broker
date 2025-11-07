@@ -42,11 +42,11 @@ export default function AcompanamientoSection() {
           {/* Two Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - Encaja si */}
-            <Card className="border-2 border-green-500/20 bg-green-50/50 dark:bg-green-950/20">
+            <Card className="border-2 border-primary/20 bg-primary/5">
               <CardContent className="pt-8 pb-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-green-600 dark:text-green-500" aria-hidden="true" />
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-primary" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">Encaja si…</h3>
                 </div>
@@ -58,7 +58,7 @@ export default function AcompanamientoSection() {
                       role="listitem"
                     >
                       <CheckCircle2
-                        className="w-5 h-5 text-green-600 dark:text-green-500 flex-shrink-0 mt-0.5"
+                        className="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
                         aria-label="Sí"
                       />
                       <span className="text-base text-foreground leading-relaxed">
@@ -71,11 +71,11 @@ export default function AcompanamientoSection() {
             </Card>
 
             {/* Right Column - Aún no es para ti si */}
-            <Card className="border-2 border-amber-500/20 bg-amber-50/50 dark:bg-amber-950/20">
+            <Card className="border-2 border-muted-foreground/20 bg-muted">
               <CardContent className="pt-8 pb-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center">
-                    <AlertCircle className="w-6 h-6 text-amber-600 dark:text-amber-500" aria-hidden="true" />
+                  <div className="w-10 h-10 rounded-full bg-muted-foreground/10 flex items-center justify-center">
+                    <AlertCircle className="w-6 h-6 text-muted-foreground" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">Aún no es para ti si…</h3>
                 </div>
@@ -87,7 +87,7 @@ export default function AcompanamientoSection() {
                       role="listitem"
                     >
                       <AlertCircle
-                        className="w-5 h-5 text-amber-600 dark:text-amber-500 flex-shrink-0 mt-0.5"
+                        className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5"
                         aria-label="Precaución"
                       />
                       <span className="text-base text-foreground leading-relaxed">
