@@ -18,9 +18,9 @@ export default function HistoriasSection() {
     },
     {
       icon: Users,
-      title: 'Construye tu equipo',
+      title: 'Opera con respaldo legal',
       description:
-        'Escala tu negocio reclutando agentes bajo tu propia marca y crea una organización que crezca contigo.',
+        'Documentación, contratos y paquete notarial preparado',
     },
     {
       icon: Zap,
@@ -48,9 +48,8 @@ export default function HistoriasSection() {
             </h2>
             <Separator className="max-w-24 mx-auto" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Estamos construyendo una nueva forma de hacer negocios inmobiliarios. Únete a los primeros
-              agentes que tomarán el control de su carrera y construirán su propia marca. Sé parte de
-              esta transformación desde el inicio.
+              Estamos construyendo una nueva forma de hacer negocios inmobiliarios. Vende como siempre, pero bajo tu marca. Te a
+              ayudamos con el marco legal, la operativa y herramientas listas para trabajar.
             </p>
           </div>
 
