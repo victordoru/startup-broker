@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 // API service for connecting to the backend server
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+// En producción, usar ruta relativa para que pase por el proxy de Apache
+// En desarrollo, usar localhost
+const API_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.PROD ? '' : 'http://localhost:3000');
 
 // Create axios instance with base URL
 const apiClient = axios.create({
