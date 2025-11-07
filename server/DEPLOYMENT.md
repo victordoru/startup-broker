@@ -206,9 +206,10 @@ sudo nano /etc/apache2/sites-available/startup.conf
     </Directory>
     
     # Backend API (Proxy a Node.js)
+    # IMPORTANTE: Cambia el puerto (3000, 3006, etc.) según el puerto que uses en tu .env
     ProxyPreserveHost On
-    ProxyPass /api http://localhost:3000/api
-    ProxyPassReverse /api http://localhost:3000/api
+    ProxyPass /api http://localhost:3006/api
+    ProxyPassReverse /api http://localhost:3006/api
     
     ErrorLog ${APACHE_LOG_DIR}/startup-error.log
     CustomLog ${APACHE_LOG_DIR}/startup-access.log combined
@@ -228,37 +229,16 @@ sudo systemctl reload apache2
 sudo npm install -g pm2
 ```
 
-2. Crear archivo de configuración PM2:
-```bash
-cd /var/www/html/startup/server
-nano ecosystem.config.js
-```
+2. El archivo de configuración PM2 ya existe en el proyecto:
+   - `ecosystem.config.cjs` (extensión .cjs porque el proyecto usa ES modules)
 
-3. Agregar configuración:
-```javascript
-module.exports = {
-  apps: [{
-    name: 'startup-server',
-    script: './index.js',
-    instances: 1,
-    autorestart: true,
-    watch: false,
-    max_memory_restart: '1G',
-    env: {
-      NODE_ENV: 'production',
-      PORT: 3000
-    },
-    error_file: '/var/log/pm2/startup-error.log',
-    out_file: '/var/log/pm2/startup-out.log',
-    log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
-  }]
-};
-```
+**Nota:** El archivo usa extensión `.cjs` porque el proyecto tiene `"type": "module"` en package.json.
+PM2 necesita CommonJS para los archivos de configuración, por eso usamos `.cjs`.
 
 4. Iniciar con PM2:
 ```bash
 cd /var/www/html/startup/server
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.cjs
 pm2 save
 pm2 startup
 ```
@@ -273,7 +253,8 @@ pm2 logs startup-server
 
 2. Verificar conexión a MongoDB:
 ```bash
-curl http://localhost:3000/api/health
+# Cambia el puerto según el que uses en tu .env (3000, 3006, etc.)
+curl http://localhost:3006/api/health
 ```
 
 3. Verificar que Apache está sirviendo el frontend:
@@ -333,7 +314,7 @@ mongo mongodb://startup_user:TU_CONTRASEÑA@46.105.31.243:27017/startup?authSour
 ### La API no responde:
 1. Verificar que PM2 está corriendo: `pm2 status`
 2. Verificar logs: `pm2 logs startup-server`
-3. Verificar que el puerto 3000 está disponible: `netstat -tulpn | grep 3000`
+3. Verificar que el puerto está disponible (cambia 3006 por el puerto que uses): `netstat -tulpn | grep 3006`
 
 ### Error "not primary" o "NotWritablePrimary":
 Si ves este error al intentar crear usuarios o escribir datos, significa que estás conectado a un nodo **secondary** de un Replica Set.
